@@ -14,7 +14,7 @@ class IaeaSpiderSpider(scrapy.Spider):
             iaea_items['title'] = i_item.xpath(".//h4/a/text()").extract_first()
             iaea_items['pub_time'] = i_item.xpath(".//span[@class='dateline-published']/text()").extract_first()
             iaea_items['text_link'] = 'https://www.iaea.org' + i_item.xpath(".//h4/a/@href").extract_first()
-        yield iaea_items
+            yield iaea_items
 
         next_link = response.xpath("//div[@class='text-center']//ul/li[@class='next']//a/@href").extract()
         if next_link:
